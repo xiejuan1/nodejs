@@ -1,0 +1,43 @@
+npm imit
+
+npm i--save express
+
+npm i--save body-parser
+
+npm i --save mongoose@4
+
+npm i --save formidable
+
+
+
+
+
+
+
+
+
+websocket
+
+
+ÉÏÎç
+
+npm init
+
+
+
+npm i --save ws
+
+
+
+
+
+
+
+
+¾ÖÓòÍø
+
+
+npm i --save express
+
+
+npm i --save socket.io

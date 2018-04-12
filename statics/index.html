@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+	</head>
+	<body>
+		<div class="container">
+			<div class="navbar navbar-dark bg-dark" id="nav">
+				<div class="left">
+					<ul>
+						<li>拉勾网管理系统</li>
+						<li class="one">首页</li>
+						<li class="two">职位管理</li>
+					</ul>
+				</div>
+				<div class="right">
+					<div class="box" >
+					<div class="login" data-toggle="modal" data-target="#myModals">登录</div>
+					<div class="regist"  data-toggle="modal" data-target="#myModal" >注册</div>
+					</div>
+					<div class="box1" style="display: none;">
+						<div class="user">你好！某某某</div>
+						<div class="del" onclick="javascript:location.reload(true);">退出</div>
+					</div>
+				</div>
+			</div>
+			
+			
+			<div class="eg navbar-dark bg-dark">
+			<span>基于NodeJS+Express+EJS+MongoDB的拉勾网后台管理系统</span>
+		</div>
+		
+		
+		
+		<div class="main" style="display: none;">
+			<div class="head">
+				<div class="manage">职位管理</div>
+				<button class="btn btn-primary" id="add" data-toggle="modal" data-target="#comment">添加</button>
+			</div>
+
+				<table border="1">
+					<thead>
+						<tr>
+							<td>序号</td>
+							<td>公司logo</td>
+							<td>职位名称</td>
+							<td>公司名称</td>
+							<td>工作经验</td>
+							<td>职位类型</td>
+							<td>工作地点</td>
+							<td>职位薪资</td>
+							<td>操作</td>
+						</tr>
+					</thead>
+					<tbody id="tab">
+						
+					
+					</tbody>
+					<tfoot>
+
+					</tfoot>
+				</table>
+		<!--<ul id="paged" class="pagination pagination4" style="float: right;">
+			<li class="prev" jp-role="prev" jp-data="8">
+				<a href="javascript:void(0);">&lt;&lt;</a>
+			</li>
+			<li class="page active" jp-role="page" jp-data="9">
+				<a href="javascript:void(0);"> 9 / 100 </a>
+			</li>
+			<li class="next" jp-role="next" jp-data="10">
+				<a href="javascript:void(0);">&gt;&gt;</a>
+			</li>
+		</ul>-->
+			<div id="paged">
+				
+			</div>
+		</div>
+		</div>
+		
+		
+		
+		
+		<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" >
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">用户注册</h4>
+            </div>
+            <div class="modal-body">
+            	<p>用户名</p>
+            	<input type="text" id="username" placeholder="输入用户名"/>
+            	<p>密码</p>
+            	<input type="text" id="pwd" placeholder="输入密码"/>
+            	<p>确认密码</p>
+            	<input type="text" id="pwd1" placeholder="再次输入密码"/>
+            	<p>邮箱</p>
+            	<input type="text" id="email" placeholder="输入e-mail地址"/>
+            </div>
+            <div class="modal-footer">      
+                <button type="button" class="btn btn-primary"  id="regist">注册</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+		
+		
+		
+		
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModals" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" >
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+             <h4 class="modal-title" id="myModalLabel">用户登录</h4>
+            </div>
+            <div class="modal-body">
+            	
+            <p>用户名</p>
+            	<input type="text" id="usernames" placeholder="输入用户名"/>
+            	<p>密码</p>
+            	<input type="text" id="pwds" placeholder="输入密码"/>	
+            	
+            	
+           
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="login">登录</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+			
+	
+	
+		<!-- 模态框（Modal） -->
+<div class="modal fade" id="comment" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" >
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">职位信息</h4>
+            </div>
+            <div class="modal-body">
+            	<p>公司logo</p>
+            	<input type="file" id="filed"/>
+            	
+            	<div class="img">
+            		<img src="imgs/10.jpg"/>
+            	</div>
+            	
+            	<p>职位名称</p>
+            	<input type="text" id="position" placeholder="输入职位名称"/>
+            	<p>公司名称</p>
+            	<input type="text" id="company" placeholder="输入公司名称"/>
+            	<p>工作经验</p>
+            	<input type="text" id="expreience" placeholder="输入工作经验"/>
+            	<p>职位类型</p>
+            	<input type="text" id="type" placeholder="输入职位类型"/>
+            	<p>工作地点</p>
+            	<input type="text" id="site" placeholder="输入工作地点"/>
+            	<p>工作薪资</p>
+            	<input type="text" id="salary" placeholder="输入工作薪资"/>
+            </div>
+            <div class="modal-footer">      
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id="send">提交</button>
+                <button type="button" class="btn btn-primary hidden" data-dismiss="modal" id="comfirm">确认</button>
+                
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>	
+	
+
+	
+		<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src="js/artTamplate.js"></script>
+		<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<!--<script src="js/jqPaginator.js"></script>-->
+		<script src="js/jquery.pagination.js"></script>
+	<!--注册-->	
+	<script src="js/regist.js"></script>
+	<!--登录-->
+	<script src="js/login.js"></script>
+	<!--详情-->
+	<script src="js/comment.js"></script>
+	
+	
+	<script type="text/html" id="commentTemp">
+		{{each list as item }}
+				<tr class="boxed">
+					<td>{{item.index}}</td>
+					<td class="imgs"><img src="{{item.img}}" id="logo"></td>
+					<td class="position">{{item.position}}</td>
+					<td class="company">{{item.company}}</td>
+					<td class="expreience">{{item.expreience}}</td>
+					<td class="type">{{item.type}}</td>
+					<td class="site">{{item.site}}</td>
+					<td class="salary">{{item.salary}}</td>
+					<td>
+				<button class="btn btn-primary" data-toggle="modal" data-target="#comment" id="edit" data-id={{item._id}}>修改</button>
+				<button data-id={{item._id}} id="del">删除</button>
+					</td>
+				</tr>
+		
+		
+		{{/each}}
+	</script>
+
+	</body>
+</html>
